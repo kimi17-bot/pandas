@@ -1,0 +1,23 @@
+import pandas as pd
+
+# 데이터 프레임 생성
+data = {
+    "Component": [
+        "Length Overall (LOA) (ft)", "Beam (ft)", "Draft (ft)", "Displacement (lbs)", 
+        "Waterline Length (Lwl) (ft)", "Speed (knots)", "Fuel Consumption (gallons/hour)", 
+        "Length-to-Beam Ratio", "Beam-to-Draft Ratio", "Displacement/Length Ratio", 
+        "Prismatic Coefficient (Cp)", "Speed-to-Length Ratio", "Fuel Consumption per Mile"
+    ],
+    "Value": [
+        40, 12, 4, 20000, 35, 10, 20, "=B2/B3", "=B3/B4", 
+        "=(B5/2240)/((B6/100)^3)", "=0.6", "=B7/SQRT(B6)", "=B8/B7"
+    ]
+}
+
+df = pd.DataFrame(data)
+
+# 엑셀 파일로 저장
+file_path = "/mnt/data/Powerboat_Coastal_Cruising_Ratio_Calculation.xlsx"
+df.to_excel(file_path, index=False)
+
+import pandas as pd; tools.display_dataframe_to_user(name="Powerboat Coastal Cruising Ratio Calculation", dataframe=df)
